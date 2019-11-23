@@ -27,3 +27,31 @@ module.exports.add = function (data) {
 
   return newCurrency.save()
 };
+
+module.exports.edit = async function ({ _id, ...restData}) {
+    try {
+        const currency = await Currency.findOneAndUpdate({ _id }, { ...restData, updatedAt: Date.now() }, { new: true })
+
+        return currency
+    } catch(e) {
+        return Promise.reject('Data format is not correct');
+    }
+
+};
+
+module.exports.delete = async function ({ names }) {
+
+  if(!names || !names.length) {
+      return Promise.reject('Data format is not correct');
+  }
+
+  try {
+      await Currency.deleteMany({ name: { $in: names}})
+
+      return Promise.resolve('Currencies was successfully removed');
+  } catch(e) {
+      return Promise.reject('Data format is not correct');
+  }
+
+}
+

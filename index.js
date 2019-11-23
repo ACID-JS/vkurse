@@ -9,6 +9,7 @@ mongoose.connect("mongodb://vkurse:vkurse12345@ds115543.mlab.com:15543/vkurse",
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
+    useFindAndModify: false,
   })
   .then(()=>console.log('DB connected'))
   .catch(err => console.error(err))

@@ -27,3 +27,35 @@ module.exports.addCurrency = function (req, res) {
         .json({ err: err.message });
     })
 };
+
+module.exports.deleteCurrencies = function (req, res) {
+    db
+        .delete(req.body)
+        .then((results) => {
+        console.log('results',results)
+            res
+                .status(200)
+                .json({ message:results });
+        })
+        .catch((err) => {
+            console.log('err',err)
+            res
+                .status(400)
+                .json({ err: err.message });
+        })
+};
+
+module.exports.editCurrency = function (req, res) {
+    db
+        .edit(req.body)
+        .then((results) => {
+            res
+                .status(201)
+                .json(results);
+        })
+        .catch((err) => {
+            res
+                .status(400)
+                .json({ err: err.message });
+        })
+};

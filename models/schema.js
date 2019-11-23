@@ -16,6 +16,12 @@ let currencySchema = new Schema({
   courseSail: {
     type: Number
   },
+  description: {
+    type: String,
+    trim: true,
+    maxLength: 300,
+    default: null,
+  },
 });
 
 const Currency = mongoose.model('currency', currencySchema);

@@ -6,5 +6,8 @@ router.get('/currency', ctrlCurrency.getCurrency);
 
 router.post('/currency', ctrlCurrency.addCurrency);
 
+router.delete('/currency', ctrlCurrency.deleteCurrencies);
+
+router.patch('/currency', ctrlCurrency.editCurrency);
 
 module.exports = router;
