@@ -181,9 +181,9 @@ button {
   @media screen and (min-width: 768px) and (min-width: 1024px) and (min-width: 1280px) {
     .CurrencyItem:not(:last-of-type) {
       margin-right: 2.5625rem; } }
-  .CurrencyItem--Border-Red {
+  .CurrencyItem--Border-Red, .CurrencyItem--Type_EURO {
     border-color: #E87580; }
-  .CurrencyItem--Border-Blue {
+  .CurrencyItem--Border-Blue, .CurrencyItem--Type_RUB {
     border-color: #7AA9F3; }
   .CurrencyItem--Type_USD .CurrencyItem__Wrapper {
     padding-right: 2.875rem; }

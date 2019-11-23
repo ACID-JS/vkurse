@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Currency = require('./schema');
+const Currency = require('./schemaCurrency');
 
 
 const isNotValid = data => {

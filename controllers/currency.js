@@ -1,4 +1,4 @@
-const db = require('../models/db');
+const db = require('../models/dbCurrency');
 
 module.exports.getCurrency = function (req, res) {
   db
