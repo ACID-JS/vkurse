@@ -1,0 +1,8 @@
+{
+  "apps" : [
+    {
+      "name": "vkurse",
+      "script": "npm start"
+    }
+  ]
+}
