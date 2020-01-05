@@ -28,9 +28,10 @@ module.exports.add = function (data) {
   return newCurrency.save()
 };
 
-module.exports.edit = async function ({ _id, ...restData}) {
+
+module.exports.edit = async function ({ name, ...restData}) {
     try {
-        const currency = await Currency.findOneAndUpdate({ _id }, { ...restData, updatedAt: Date.now() }, { new: true })
+        const currency = await Currency.findOneAndUpdate({ name }, { ...restData, updatedAt: Date.now() }, { new: true })
 
         return currency
     } catch(e) {
@@ -38,6 +39,7 @@ module.exports.edit = async function ({ _id, ...restData}) {
     }
 
 };
+
 
 module.exports.delete = async function ({ names }) {
 
