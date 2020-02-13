@@ -21,8 +21,8 @@ module.exports.add = function (data) {
   }
   let newCurrency = new Currency({
     name: data.name,
-    courseBuy: parseFloat(data.courseBuy),
-    courseSail: parseFloat(data.courseSail),
+    courseBuy: data.courseBuy,
+    courseSail: data.courseSail,
   });
 
   return newCurrency.save()
