@@ -3,9 +3,9 @@ process.env["NTBA_FIX_319"] = 1
 const fs = require('fs')
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios')
-const bot = new TelegramBot(token, {polling: true});
 
-const token = '936631566:AAGmkZ3yvBa749X2UeLHbF3OronIn6ZysWY';
+const bot = new TelegramBot(process.env.TOKEN, {polling: true});
+
 const logger = require('./logger');
 const {
     currency_keyboard,
@@ -21,25 +21,25 @@ let actions = {}
 
 bot.on('message', (msg) => {
     const chatId = msg.chat.id;
+    const allowedIds = process.env.ALLOWED_TELEGRAM_ID.split(',')
+    const adminIds = process.env.ADMIN_TELEGRAM_ID.split(',')
+
+    if(!allowedIds.some(id => id == chatId)) {
+        bot.sendMessage(chatId, 'У Вас нет прав доступа на этот бот')
+        adminIds.map(id => id != 0 && bot.sendMessage(id, `Попытка использовать бот - ${chatId}`))
+        return false
+    }
 
     if(commandList[msg.text]) {
         return false
     }
 
     if(actions[chatId] && actions[chatId].status === "courseBuy" ){
-        if(Number(msg.text) && Number(msg.text).toFixed(2) > 0) {
-            controller.getCurrencySailData(actions[chatId].currency, chatId, msg.text)
-        } else {
-            controller.getCurrencyData(actions[chatId].currency, chatId)
-        }
+        controller.getCurrencySailData(actions[chatId].currency, chatId, msg.text)
     }
 
-    else if(Number(msg.text) && Number(msg.text).toFixed(2) > 0){
-        if(parseFloat(msg.text) && +msg.text && msg.text > 0) {
-            controller.prepareToChangeCurrency(chatId, msg.text)
-        } else {
-            controller.getCurrencySailData(actions[chatId].currency, chatId, actions[chatId].courseBuy )
-        }
+    else if(actions[chatId] && actions[chatId].status === "courseSail" ){
+        controller.prepareToChangeCurrency(chatId, msg.text)
     }
 
 });
@@ -96,7 +96,8 @@ const controller = {
         bot.sendMessage(id, `Укажите цену покупки для ${currency}`)
     },
     cancelChangeCurrency: (id) => {
-        bot.sendMessage(id, `Изменение валюты  ${actions[id].currency} отменено`);
+        const curryncy = actions[id] && actions[id].currency || ""
+        bot.sendMessage(id, `Изменение валюты ${curryncy} отменено`);
         actions[id] = undefined;
     },
     getCurrencySailData: (currency, id, course) => {
@@ -105,8 +106,8 @@ const controller = {
         bot.sendMessage(id, `Укажите цену продажи для ${currency}`)
     },
     changeCurrency : async(id) => {
-
-        axios.patch('http://localhost:8001/api/currency', {
+        if(!actions[id] || !actions[id].currency) return false
+        axios.patch(`${process.env.PORT_WITH_URL}/api/currency`, {
             name: actions[id].currency,
             "courseBuy": actions[id].courseBuy,
             "courseSail": actions[id].courseSail,
@@ -133,5 +134,4 @@ const controller = {
 };
 
 //error handler
-bot.on("polling_error", (err) => logger.log('error', err.message);
-    
+bot.on("polling_error", (err) => logger.log('error', err.message));

@@ -11,10 +11,10 @@ let currencySchema = new Schema({
     index: true,
   },
   courseBuy: {
-    type: Number
+    type: String
   },
   courseSail: {
-    type: Number
+    type: String
   },
   description: {
     type: String,
