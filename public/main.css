@@ -1,0 +1,291 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+body {
+    background-color: #F4F5F7;
+}
+.Main {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+.Main__cards-section {}
+.Section__meta {
+    padding-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+.Section__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #333848;
+}
+.Sections__current-date {
+    font-size: 0.875rem;
+    text-align: center;
+    color: #4c4c4c;
+
+}
+.Main__contacts-section {}
+.Section {}
+.Cards-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.Card-list__item {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+.Card {
+    background-color: #FAFAFA;
+    border-radius: 0.625rem;
+    position: relative;
+    padding-top: 60%;
+    -moz-box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);
+    box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);
+}
+.Card__content {
+    position: absolute;
+    padding: 1.5rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.Card__meta {
+    display: flex;
+}
+.Card__flag {
+    border-radius: 0.4rem;
+    margin-right: 0.9rem;
+    width: 4.5rem;
+    height: 2.625rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -moz-box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);
+    box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);
+}
+.Card__flag_usa {
+    background-image: url('usa.png');
+}
+.Card__flag_eur {
+    background-color: #003299;
+    background-image: url('euro.png');
+}
+.Card__flag_rus {
+    background-image: url('russian.png');
+}
+.Card__type-currency {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333848;
+}
+
+.Card__description-currency {
+    color: #525252;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.Card__exchange {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Card__exchange {}
+
+.Card__exchange-rate {
+    font-size: 1.625rem;
+    font-weight: 600;
+    color: #333848;
+    margin-bottom: 0.5rem;
+}
+
+.Card__exchange-description {
+    color: #545454;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.02rem;
+}
+
+.Main__contacts-section {
+    padding-top: 2rem;
+}
+.btc {
+    padding-bottom: 0.7rem;
+}
+.Contact-card-item {
+    background-color: #FAFAFA;
+    border-radius: 0.625rem;
+    margin-bottom: 4rem;
+    overflow: hidden;
+    -moz-box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);
+    box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);
+}
+.Contact-card-item__divider {
+    border-top: dashed 0.0625rem #ccc;
+    margin-bottom: 1.3rem;
+
+}
+.Contact-card-item__data {
+    padding: 1.5rem;
+    padding-bottom: 1rem;
+}
+.Contact-card-item__data p{
+    font-size: 0.9rem;
+    color: #333848;
+    margin-bottom: 0.7rem;
+}
+
+.Contact-card-item__data a {
+    color: #095580;
+}
+
+.Contact-card-item__phones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Contact-card-item__phones-list {
+    list-style: none;
+}
+.Contact-card-item__map {
+    width: 100%;
+    position: relative;
+    padding-top: 80%;
+    background-image: url('map_mobile.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.625rem;
+}
+.Contact-card-item__map a{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+}
+/*.Contact-card {*/
+/*    background-color: #FAFAFA;*/
+/*    border-radius: 0.625rem;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*    padding-top: 140%;*/
+/*    -moz-box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);*/
+/*    box-shadow: 0px 2px 5px 2px rgb(222, 222, 222);*/
+/*    margin-bottom: 1.5rem;*/
+/*}*/
+
+
+@media screen and (min-width: 414px) {
+    .Card__content {
+        padding: 1.8rem;
+    }
+    .Card__exchange-rate {
+        font-size: 1.9rem;
+    }
+    .Card__exchange-description {
+        font-size: 1rem;
+    }
+    .Contact-card-item__data p{
+        font-size: 1.1rem;
+        color: #333848;
+        margin-bottom: 1rem;
+    }
+
+}
+@media screen and (min-width: 568px) {
+    .Card-list__item {
+        width: 48%;
+    }
+    .Card__content {
+        padding: 1rem;
+    }
+    .Card__exchange-rate {
+        font-size: 1.2rem;
+    }
+    .Card__exchange-description {
+        font-size: 0.8rem;
+    }
+    .Cards-list {
+        justify-content: space-between;
+    }
+    .Contact-card-item {
+        display: flex;
+    }
+    .Contact-card-item__map {
+        flex: 1;
+        padding-top: 50%;
+    }
+
+}
+@media screen and (min-width: 700px) {
+    .Card__content {
+        padding: 1.4rem;
+    }
+    .Card__exchange-rate {
+        font-size: 1.5rem;
+    }
+    .Card__exchange-rate {
+        font-size: 1.55rem;
+    }
+    .Card__exchange-description {
+        font-size: 0.9rem;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .Section__meta {
+        padding-top: 4rem;
+    }
+    .Section__title {
+        font-size: 1.4rem;
+    }
+    .Sections__current-date {
+        font-size: 1rem;
+    }
+    .Main__cards-section {
+        width: 64rem;
+        margin: 0 auto;
+    }
+    .Card-list__item {
+        width: 32%;
+    }
+    .Card__content {
+        padding: 1.3rem;
+    }
+    .Card__exchange-rate {
+        font-size: 1.5rem;
+    }
+    .Card__exchange-description {
+        font-size: 0.8rem;
+    }
+    .Contact-card-item__data {
+        margin-right: 1.5rem;
+    }
+    .Contact-card-wrapper {
+        width: 1024px;
+        margin: 0 auto;
+    }
+    .Contact-card-item__map {
+        background-image: url('map_desktop.jpg');
+    }
+}

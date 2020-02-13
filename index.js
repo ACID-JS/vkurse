@@ -48,6 +48,14 @@ app.use(cors({
     }
 }));
 
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', require('./routes/index'));
+app.use('/api', require('./routes/api'))
 // // error handler
 app.use(function(err, req, res, next) {
   // render the error page
