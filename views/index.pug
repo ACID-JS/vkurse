@@ -1,78 +1,80 @@
 doctype html
-html(lang="ru-RU")
+html(lang="ru")
 	head
-		meta(charset="utf-8")
-		title #{title}
-		<!--[if IE]>
-		meta(http-equiv='X-UA-Compatible', content="IE = edge")
-		<![endif]-->
-		meta(name="viewport" content="width=device-width,initial-scale=1")
-		meta(name="keywords" content="")
-		link(rel="stylesheet" type='text/css' href="css/styles.min.css")
-		script(async defer
-		src="https://maps.googleapis.com/maps/api/js?key=JIzAqvrCjJ5DkFa169TSX7aMCyeIbhn4ndWmbCiUSg8&callback=initMap")
-		<!--[if lt IE 9]>
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
-		<![endif]-->
-	body
-		.wrapper
-			header.Header
-				.container
-					.Header__Wrapper
-						h2.Header__Heading VKURSE | Обен валют
-						a.Header__Link(href="#")
-						a.Header__Link(href="#")
-			.content
-				section.Currency
-					.container
-						.CurrencyWrapper
-							.CurrencyHeading Актуальный курс
-							.CurrencyList
-								each val, index in currency
-									div(class='CurrencyItem--Type_' + val.name + ' CurrencyItem')
-										.CurrencyItem__Wrapper
-											.CurrencyItem__Info
-												.CurrencyItem__Title!=val.courseBuy
-												.CurrencyItem__SubTitle Покупка
-												.CurrencyItem__Title!=val.courseSail
-												.CurrencyItem__SubTitle Продажа
-											.CurrencyItem__ImgBlock
-												if val.name == "EURO"
-													svg(width='87', height='100', viewBox='0 0 87 100', fill='none', xmlns='http://www.w3.org/2000/svg')
-														path(d='M63.9843 31.5965H35.1497C36.9656 28.3151 39.2755 25.7535 42.0709 23.8839L42.0788 23.8786L42.0866 23.8731C45.2606 21.6618 48.9738 20.5439 53.2661 20.5439C57.0614 20.5439 60.457 21.4385 63.4777 23.2131L63.4872 23.2187L63.4969 23.2241C66.5415 24.9234 69.0504 27.2464 71.0303 30.2053L71.6521 31.1344L72.5064 30.4133L84.645 20.1677L85.2704 19.6398L84.8767 18.9224C81.8575 13.4212 77.5046 9.07953 71.8423 5.90437C66.251 2.62687 59.8772 1 52.7496 1C43.154 1 34.8751 3.82858 27.9665 9.50824C21.252 15.0283 16.528 22.4066 13.7764 31.5965H2.12913H1.12913V32.5965V46.0702V47.0702H2.12913H11.2569C11.2195 47.8341 11.2016 48.766 11.2016 49.8597C11.2016 51.3139 11.2229 52.5266 11.2668 53.4912H2H1V54.4912V67.9649V68.9649H2H14.0455C16.8781 77.9706 21.5995 85.2081 28.2264 90.6334L28.2313 90.6374C35.1366 96.2181 43.3257 99 52.7496 99C59.8755 99 66.2482 97.4207 71.8396 94.2375L71.8449 94.2344C77.5054 90.9661 81.8575 86.5788 84.8767 81.0776L85.2704 80.3602L84.645 79.8323L72.5064 69.5867L71.6521 68.8656L71.0303 69.7948C69.0495 72.7549 66.5377 75.1277 63.4873 76.9216C60.466 78.6057 57.0667 79.4561 53.2661 79.4561C49.1428 79.4561 45.5065 78.4296 42.326 76.3946C39.6228 74.536 37.37 72.0664 35.5729 68.9649H54.9449H55.7263L55.9152 68.2067L59.2727 54.733L59.5821 53.4912H58.3024H31.1969C31.0794 52.0579 31.022 50.8964 31.022 50C31.022 48.7913 31.0422 47.8175 31.0806 47.0702H60.6268H61.4082L61.5971 46.312L64.9546 32.8383L65.264 31.5965H63.9843Z', fill='#F2F2F2', stroke='white', stroke-width='2')
-												else if val.name == "USD"
-													svg(width='64', height='115', viewBox='0 0 64 115', fill='none', xmlns='http://www.w3.org/2000/svg')
-														path(d='M64 74.6277C64 80.9712 61.8713 86.2727 57.6139 90.5319C53.449 94.7005 47.8959 97.3286 40.9544 98.4161V115H24.5727V98.1442C19.2046 96.9661 14.3919 94.8365 10.1345 91.7553C5.96963 88.5835 2.59147 84.5961 0 79.7931L12.6334 70.5496C18.0014 78.7963 24.9892 82.9196 33.5965 82.9196C37.2061 82.9196 40.1215 82.24 42.3427 80.8806C44.564 79.5213 45.6746 77.5276 45.6746 74.8995C45.6746 72.7246 44.7954 71.0028 43.0369 69.734C41.3709 68.3747 38.6869 66.9701 34.9848 65.5201L25.5445 62.1217C19.0658 59.7656 13.9754 56.6391 10.2733 52.7423C6.66377 48.7549 4.859 43.9972 4.859 38.4693C4.859 32.9413 6.66377 28.2289 10.2733 24.3321C13.8829 20.3448 18.6493 17.6714 24.5727 16.3121V0H40.9544V16.0402C50.1171 17.9433 57.0123 23.1541 61.6399 31.6726L49.1453 40.9161C46.9241 37.7443 44.5177 35.4334 41.9262 33.9835C39.3348 32.4429 36.4194 31.6726 33.18 31.6726C30.3109 31.6726 27.9046 32.2616 25.961 33.4397C24.1099 34.5272 23.1844 36.249 23.1844 38.6052C23.1844 40.5989 23.9248 42.2301 25.4056 43.4988C26.979 44.6769 29.3391 45.9003 32.4859 47.169L42.898 50.7033C49.932 53.2407 55.2075 56.5032 58.7245 60.4905C62.2415 64.3873 64 69.0997 64 74.6277Z', fill='#F2F2F2')
-												else if val.name == "RUB"
-													svg(width='86', height='103', viewBox='0 0 86 103', fill='none', xmlns='http://www.w3.org/2000/svg')
-														path(d='M73.0919 69.35V68.35H72.0919H35.1066V60.9H51.8934C58.1488 60.9 63.7748 59.7261 68.7504 57.3543C73.8373 54.9774 77.8062 51.5021 80.6264 46.9317C83.5529 42.3522 85 37.0124 85 30.95C85 21.799 81.8872 14.4588 75.6121 9.0454C69.4666 3.65692 61.53 1 51.8934 1H13.7574H12.7574V2V41.8H2H1V42.8V59.9V60.9H2H12.7574V68.35H2H1V69.35V85.55V86.55H2H12.7574V101V102H13.7574H34.1066H35.1066V101V86.55H72.0919H73.0919V85.55V69.35ZM59.3592 23.1388L59.3677 23.1466L59.3764 23.1542C61.5348 25.0336 62.6507 27.6389 62.6507 31.1C62.6507 34.5563 61.5379 37.1592 59.3854 39.038C57.1955 40.8498 54.2776 41.8 50.5368 41.8H35.1066V20.1H50.5368C54.2593 20.1 57.1672 21.1393 59.3592 23.1388Z', fill='#F2F2F2', stroke='white', stroke-width='2')
-				section.info
-					.container
-						.Information-Content
-							.Information-Content__List
-								.Information-Content__Item
-									p.Information-Content__Text
-										span.Information-Content__Text-Wrapper!=settings.location
-										span.Information-Content__Text-Wrapper!=settings.address
-									i.p.Information-Content__Icon
-										svg(width='14', height='20', viewBox='0 0 14 20', fill='none', xmlns='http://www.w3.org/2000/svg')
-											path(d='M7.00065 0C3.50232 0 0.333984 2.83583 0.333984 6.335C0.333984 9.83333 3.22482 14.01 7.00065 20C10.7765 14.01 13.6673 9.83333 13.6673 6.335C13.6673 2.83583 10.4998 0 7.00065 0ZM7.00065 11.6667C4.23898 11.6667 2.00065 9.42833 2.00065 6.66667C2.00065 3.905 4.23898 1.66667 7.00065 1.66667C9.76232 1.66667 12.0007 3.905 12.0007 6.66667C12.0007 9.42833 9.76232 11.6667 7.00065 11.6667Z', fill='#4C4C4C')
-								.Information-Content__RadWrapper
-									.Information-Content__Item
-										p.Information-Content__Text
-											each phone, phoneIndex in settings.phones
-												span.Information-Content__Text-Wrapper!=phone
-										i.p.Information-Content__Icon
-											svg(width='13', height='17', viewBox='0 0 13 17', fill='none', xmlns='http://www.w3.org/2000/svg')
-												path(d='M12.167 16.0232L9.67296 11.2101C9.66729 11.2129 8.27471 11.8972 8.21096 11.9262C6.62429 12.6955 3.395 6.38704 4.94625 5.55546L6.42171 4.82871L3.9475 0L2.45575 0.735958C-2.64567 3.39575 5.45412 19.1399 10.6724 16.7549C10.7581 16.716 12.1613 16.026 12.167 16.0232Z', fill='#4C4C4C')
-									.Information-Content__Item.noMargin
-										p.Information-Content__Text
-											span.Information-Content__Text-Wrapper!=settings.workTime
-											span.Information-Content__Text-Wrapper!=settings.wordDays
-										i.p.Information-Content__Icon
-											svg(width='15', height='15', viewBox='0 0 15 15', fill='none', xmlns='http://www.w3.org/2000/svg')
-												path(d='M10.625 1.875V0.625C10.625 0.28 10.9044 0 11.25 0C11.5956 0 11.875 0.28 11.875 0.625V1.875C11.875 2.22 11.5956 2.5 11.25 2.5C10.9044 2.5 10.625 2.22 10.625 1.875ZM3.125 2.5C3.47062 2.5 3.75 2.22 3.75 1.875V0.625C3.75 0.28 3.47062 0 3.125 0C2.77938 0 2.5 0.28 2.5 0.625V1.875C2.5 2.22 2.77938 2.5 3.125 2.5ZM11.25 10.625V8.75H10.625V11.25H12.5V10.625H11.25ZM8.125 10.9375C8.125 12.4881 9.38688 13.75 10.9375 13.75C12.4881 13.75 13.75 12.4881 13.75 10.9375C13.75 9.38688 12.4881 8.125 10.9375 8.125C9.38688 8.125 8.125 9.38688 8.125 10.9375ZM15 10.9375C15 13.1812 13.1812 15 10.9375 15C8.69375 15 6.875 13.1812 6.875 10.9375C6.875 8.69375 8.69375 6.875 10.9375 6.875C13.1812 6.875 15 8.69375 15 10.9375ZM6.10187 13.125H1.25V5H13.125V6.10187C13.5794 6.30812 13.9994 6.575 14.375 6.89437V1.25H12.5V1.875C12.5 2.6975 11.7012 3.33687 10.8387 3.05875C10.3194 2.89125 10 2.36438 10 1.81875V1.25H4.375V1.875C4.375 2.6975 3.57625 3.33687 2.71375 3.05875C2.19438 2.89125 1.875 2.36438 1.875 1.81875V1.25H0V14.375H6.89437C6.575 13.9994 6.30812 13.5794 6.10187 13.125Z', fill='#4C4C4C')
-							img.Information-Content__Image(src="./images/general/image.png")
-				section.map(id="map")
-					iframe#gmap_canvas(width='100%', height='100%', src='https://maps.google.com/maps?q=%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%A8%D0%BE%D0%BB%D0%BE%D0%BC-%D0%90%D0%BB%D0%B5%D0%B9%D1%85%D0%B5%D0%BC%D0%B0%2C%204%2F26%2C%20%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE%CC%81%2C%20%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE%D0%BF%D0%B5%D1%82%D1%80%D0%BE%D0%B2%D1%81%D1%8C%D0%BA%D0%B0%20%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C%20%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0%2C%2049000&t=&z=17&ie=UTF8&iwloc=&output=embed', frameborder='0', scrolling='no', marginheight='0', marginwidth='0')
-		script(src="js/main.js")
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+		meta(http-equiv='X-UA-Compatible' content='ie=edge')
+		title &Acy;&kcy;&tcy;&ucy;&acy;&lcy;&softcy;&ncy;&ycy;&jcy; &kcy;&ucy;&rcy;&scy; &gcy;&rcy;&icy;&vcy;&ncy;&ycy;, &ocy;&bcy;&mcy;&iecy;&ncy; &vcy;&acy;&lcy;&yucy;&tcy; &Dcy;&ncy;&iecy;&pcy;&rcy; | &Bcy;&ucy;&dcy;&softcy; &vcy;&scy;&iecy;&gcy;&dcy;&acy; &vcy; &kcy;&ucy;&rcy;&scy;&iecy;
+		meta(name='description' content='Круглосуточный обмен валют в Днепре. Актуальный курс гривны к доллару, евро, рублю')
+		link(rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png')
+		link(rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png')
+		link(rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png')
+		link(rel='manifest' href='/site.webmanifest')
+		// <link rel="stylesheet" type="text/css" href="main.css">
+		// <meta name="google-site-verification" content="JIzAqvrCjJ5DkFa169TSX7aMCyeIbhn4ndWmbCiUSg8" />
+		// <meta property="og:image" content="path/to/image.jpg">
+		style.
+			*{padding:0;margin:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"}body{background-color:#f4f5f7}.Main{padding-left:.75rem;padding-right:.75rem}.Section__meta{padding-top:1.5rem;margin-bottom:2rem}.Section__title{font-size:1.2rem;font-weight:600;text-align:center;margin-bottom:.5rem;color:#333848}.Sections__current-date{font-size:.875rem;text-align:center;color:#4c4c4c}.Cards-list{display:flex;flex-wrap:wrap}.Card-list__item{width:100%;margin-bottom:1.5rem}.Card{background-color:#fafafa;border-radius:.625rem;position:relative;padding-top:60%;-moz-box-shadow:0 2px 5px 2px #dedede;box-shadow:0 2px 5px 2px #dedede}.Card__content{position:absolute;padding:1.5rem;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between}.Card__meta{display:flex}.Card__flag{border-radius:.4rem;margin-right:.9rem;width:4.5rem;height:2.625rem;background-position:center;background-repeat:no-repeat;background-size:cover;-moz-box-shadow:0 2px 5px 2px #dedede;box-shadow:0 2px 5px 2px #dedede}.Card__flag_usa{background-image:url(usa.png)}.Card__flag_eur{background-color:#003299;background-image:url(euro.png)}.Card__flag_rus{background-image:url(russian.png)}.Card__type-currency{font-size:1.1rem;font-weight:600;color:#333848}.Card__description-currency{color:#525252;font-size:1rem;font-weight:400}.Card__exchange{display:flex;justify-content:space-between}.Card__exchange-rate{font-size:1.625rem;font-weight:600;color:#333848;margin-bottom:.5rem}.Card__exchange-description{color:#545454;text-transform:uppercase;font-size:.9rem;letter-spacing:.02rem}.Main__contacts-section{padding-top:2rem}.btc{padding-bottom:.7rem}.Contact-card-item{background-color:#fafafa;border-radius:.625rem;margin-bottom:4rem;overflow:hidden;-moz-box-shadow:0 2px 5px 2px #dedede;box-shadow:0 2px 5px 2px #dedede}.Contact-card-item__divider{border-top:dashed .0625rem #ccc;margin-bottom:1.3rem}.Contact-card-item__data{padding:1.5rem;padding-bottom:1rem}.Contact-card-item__data p{font-size:.9rem;color:#333848;margin-bottom:.7rem}.Contact-card-item__data a{color:#095580}.Contact-card-item__phones{display:flex;justify-content:space-between}.Contact-card-item__phones-list{list-style:none}.Contact-card-item__map{width:100%;position:relative;padding-top:80%;background-image:url(map_mobile.jpg);background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:.625rem}.Contact-card-item__map a{display:block;position:absolute;left:0;top:0;width:100%;height:100%;font-size:0}@media screen and (min-width:414px){.Card__content{padding:1.8rem}.Card__exchange-rate{font-size:1.9rem}.Card__exchange-description{font-size:1rem}.Contact-card-item__data p{font-size:1.1rem;color:#333848;margin-bottom:1rem}}@media screen and (min-width:568px){.Card-list__item{width:48%}.Card__content{padding:1rem}.Card__exchange-rate{font-size:1.2rem}.Card__exchange-description{font-size:.8rem}.Cards-list{justify-content:space-between}.Contact-card-item{display:flex}.Contact-card-item__map{flex:1;padding-top:50%}}@media screen and (min-width:700px){.Card__content{padding:1.4rem}.Card__exchange-rate{font-size:1.5rem}.Card__exchange-rate{font-size:1.55rem}.Card__exchange-description{font-size:.9rem}}@media screen and (min-width:1024px){.Section__meta{padding-top:4rem}.Section__title{font-size:1.4rem}.Sections__current-date{font-size:1rem}.Main__cards-section{width:64rem;margin:0 auto}.Card-list__item{width:32%}.Card__content{padding:1.3rem}.Card__exchange-rate{font-size:1.5rem}.Card__exchange-description{font-size:.8rem}.Contact-card-item__data{margin-right:1.5rem}.Contact-card-wrapper{width:1024px;margin:0 auto}.Contact-card-item__map{background-image:url(map_desktop.jpg)}}
+	main.Main
+		section.Main__cards-section.Section
+			.Section__meta
+				h1.Section__title A&kcy;&tcy;&ucy;&acy;&lcy;&softcy;&ncy;&ycy;&jcy; &kcy;&ucy;&rcy;&scy;
+				p.Sections__current-date(aria-label='Дата') 08.02.2020
+			.Cards-list
+				each val, index in currency
+					.Card-list__item
+						.Card
+							.Card__content
+								.Card__meta
+									if val.name == "USD"
+										.Card__flag.Card__flag_usa
+										.Card__currency-meta
+											p.Card__type-currency(aria-label='Сумма') 1.00 USD
+											p.Card__description-currency(aria-label='Тип Валюты') Доллар США
+									if val.name == "EURO"
+										.Card__flag.Card__flag_eur
+										.Card__currency-meta
+											p.Card__type-currency(aria-label='Сумма') 1.00 UER
+											p.Card__description-currency(aria-label='Тип Валюты') Евро
+									if val.name == "RUB"
+										.Card__flag.Card__flag_rus
+										.Card__currency-meta
+											p.Card__type-currency(aria-label='Сумма') 10.00 RUB
+											p.Card__description-currency(aria-label='Тип Валюты') Российский рубль
+								.Card__exchange
+									.Card__exchange-item.Card__exchange_buy
+										p.Card__exchange-rate(aria-label='Сумма в гривне')!=val.courseBuy
+										p.Card__exchange-description(aria-label='Тип операции') Покупка
+									.Card__exchange-item.Card__exchange_sale
+										p.Card__exchange-rate(aria-label='Сумма в гривне')!=val.courseSail
+										p.Card__exchange-description(aria-label='Тип операции') Продажа
+		section.Main__contacts-section
+			.Section__meta
+				h2.Section__title &Kcy;&ocy;&ncy;&tcy;&acy;&kcy;&tcy;&ycy;
+			// card list
+			.Contact-card-wrapper
+				.Contact-card-item
+					.Contact-card-item__data(itemprop='address' itemscope='' itemtype='http://schema.org/PostalAddress')
+						p(aria-label='Адрес')
+							| &Ucy;&kcy;&rcy;&acy;&icy;&ncy;&acy;,
+							span(itemprop='addressLocality')
+							| &gcy;.&Dcy;&ncy;&iecy;&pcy;&rcy;
+							span(itemprop='streetAddress') &ucy;&lcy;.&Ucy;&scy;&pcy;&iecy;&ncy;&scy;&kcy;&acy;&yacy; 7
+						p
+							a(href='https://t.me/Vkurse_dp_ua') Telegram &kcy;&acy;&ncy;&acy;&lcy;
+						p.btc BTC / USD
+						.Contact-card-item__divider
+						.Contact-card-item__phones
+							ul.Contact-card-item__phones-list
+								li
+									p(aria-label='Номер мобильного' itemprop='telephone') 067 989 22 95
+								li
+									p(aria-label='Номер мобильного' itemprop='telephone') 067 989 22 95
+							ul.Contact-card-item__phones-list
+								li
+									p(aria-label='Номер мобильного' itemprop='telephone') 067 989 22 95
+								li
+									p(aria-label='Номер мобильного' itemprop='telephone') 067 989 22 95
+					// map
+					.Contact-card-item__map
+						a(aria-label='Карта' href='https://goo.gl/maps/afByqeo1kTQWHwVm6' title='открыть google maps' alt='открыть google maps') &pcy;&rcy;&ocy;&lcy;&ocy;&zhcy;&icy;&tcy;&softcy; &mcy;&acy;&rcy;&shcy;&rcy;&ucy;&tcy;
