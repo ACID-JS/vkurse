@@ -56,8 +56,8 @@ bot.onText(/\/change/, (msg) => {
     })
 });
 
-bot.onText(/\/(eurochanging|usdchanging|rubchanging)/, (msg) => {
-    const currency = msg.text.replace('changing','').replace('/','').toUpperCase();
+bot.onText(/\/(eur|usd|rub)/, (msg) => {
+    const currency = msg.text.replace('/','');
     const id = msg.chat.id;
 
     actions[ msg.chat.id] = undefined

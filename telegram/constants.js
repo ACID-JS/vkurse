@@ -44,19 +44,15 @@ const getFinalHtml = (information) => `Валюта - <b>${information.currency}
 
 const helpText = `
   *Список команд*
-  change - Поменять курс валюты из списка предложенных
-  eurochanging - Изменить цену покупки/продажи евро
-  usdchanging - Изменить цену покупки/продажи доллара
-  rubchanging - Изменить цену покупки/продажи рубля
-  help - Вызвать эту помощь
+  usd - Доллар США
+  eur - Евро
+  rub - Российский рубль
   `
 
 const commandList = {
-    "/change": true,
-    "/eurochanging": true,
-    "/usdchanging": true,
-    "/rubchanging": true,
-    "/help": true,
+    "/usd": true,
+    "/eur": true,
+    "/rub": true,
 }
 
 module.exports.currency_keyboard = currency_keyboard;
