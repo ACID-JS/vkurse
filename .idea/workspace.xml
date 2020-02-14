@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de82ad79-741f-49e7-bcfd-803dd4c6affc" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/site.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/public/site.webmanifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/currency.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/currency.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/telegram/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegram/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/telegram/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +99,7 @@
       <workItem from="1581553426183" duration="777000" />
       <workItem from="1581554818683" duration="7000" />
       <workItem from="1581621680375" duration="393000" />
+      <workItem from="1581712392201" duration="72000" />
     </task>
     <servers />
   </component>
@@ -124,13 +128,13 @@
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
     <state x="668" y="325" key="MultipleFileMergeDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1581623288943" />
-    <state x="624" y="444" key="com.intellij.ide.util.TipDialog" timestamp="1581621682119">
+    <state x="624" y="444" key="com.intellij.ide.util.TipDialog" timestamp="1581712394472">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
-    <state x="624" y="444" key="com.intellij.ide.util.TipDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1581621682119" />
-    <state x="616" y="223" width="687" height="777" key="find.popup" timestamp="1581623803242">
+    <state x="624" y="444" key="com.intellij.ide.util.TipDialog/0.23.1920.1177@0.23.1920.1177" timestamp="1581712394472" />
+    <state x="616" y="223" width="687" height="777" key="find.popup" timestamp="1581625825312">
       <screen x="0" y="23" width="1920" height="1177" />
     </state>
-    <state x="616" y="223" width="687" height="777" key="find.popup/0.23.1920.1177@0.23.1920.1177" timestamp="1581623803242" />
+    <state x="616" y="223" width="687" height="777" key="find.popup/0.23.1920.1177@0.23.1920.1177" timestamp="1581625825312" />
   </component>
 </project>
