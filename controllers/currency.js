@@ -46,6 +46,7 @@ module.exports.deleteCurrencies = function (req, res) {
 };
 
 module.exports.editCurrency = function (req, res) {
+    console.log(req.body);
     db
         .edit(req.body)
         .then((results) => {

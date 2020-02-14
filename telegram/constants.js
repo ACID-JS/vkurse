@@ -8,9 +8,9 @@ const currency_keyboard = [
             })
         },
         {
-            text: 'EURO',
+            text: 'EUR',
             callback_data: JSON.stringify({
-                "currency": "EURO",
+                "currency": "EUR",
                 "action": "change_currency",
             })
         },
@@ -37,7 +37,7 @@ const prepare_keyboard = [
     ]
 ]
 
-const getFinalHtml = (information) => `Валюта - <b>${information.currency}</b>
+const getFinalHtml = (information) => `Валюта - <b>${information.currency.toUpperCase()}</b>
 Продажа - <b>${information.courseBuy} грн</b>
 Покупка - <b>${information.courseSail} грн</b>
   `

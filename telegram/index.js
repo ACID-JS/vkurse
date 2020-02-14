@@ -93,7 +93,7 @@ bot.on('callback_query', query => {
 const controller = {
     getCurrencyData: (currency, id) => {
         actions[id] = { status: 'courseBuy', currency }
-        bot.sendMessage(id, `Укажите цену покупки для ${currency}`)
+        bot.sendMessage(id, `Укажите цену покупки для ${currency.toUpperCase()}`)
     },
     cancelChangeCurrency: (id) => {
         const curryncy = actions[id] && actions[id].currency || ""
@@ -103,21 +103,22 @@ const controller = {
     getCurrencySailData: (currency, id, course) => {
 
         actions[id] = { status: 'courseSail', currency, courseBuy: course }
-        bot.sendMessage(id, `Укажите цену продажи для ${currency}`)
+        bot.sendMessage(id, `Укажите цену продажи для ${currency.toUpperCase()}`)
     },
     changeCurrency : async(id) => {
         if(!actions[id] || !actions[id].currency) return false
         axios.patch(`${process.env.PORT_WITH_URL}/api/currency`, {
-            name: actions[id].currency,
+            name: actions[id].currency.toUpperCase(),
             "courseBuy": actions[id].courseBuy,
             "courseSail": actions[id].courseSail,
         })
             .then((res) => {
-                bot.sendMessage(id, `Курс валюты  ${actions[id].currency} изменен`);
+                bot.sendMessage(id, `Курс валюты ${actions[id].currency.toUpperCase()} изменен`);
                 actions[id] = undefined;
             })
             .catch((error) => {
-                bot.sendMessage(id, `Проблема с сервером, попробуйте позже `);
+                console.log('Проблема с сервером, попробуйте позже', error);
+                bot.sendMessage(id, `Проблема с сервером, попробуйте позже`);
             })
     },
     prepareToChangeCurrency: (id, course) => {
